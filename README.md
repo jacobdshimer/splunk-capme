@@ -2,7 +2,7 @@
 
 This edition builds on the changes that Security Onion made in their ELK implementation.  
 
-This script can be utilized in conjunction with any running Security Onion Master/Standalone.  It is best to populate the web form with information from automatically through a Splunk follow on action or custom drilldown.
+This script can be utilized in conjunction with any running Security Onion Master/Standalone.  It is best to populate the web form  automatically through a Splunk follow on action or custom drilldown.
 
 Example URI:
 
@@ -11,6 +11,12 @@ Example URI:
 SPID is an eval field I created by MD5 hashing the \_cd and \_bkt fields with a \_ between them. So the final entry within my props.conf looked like this:
 
 `EVAL-spid = md5(_bkt+"_"+_cd)`
+
+I'm currently looking for a different solution then this because I don't really like having that SPID field.  I created this to replicate the way ELK's implemenation of CapME searches for the event calling it.
+
+The user that is logging into the Security Onion webserver needs to have an account on Splunk with the same creds.
+
+## Requirements
 
 ### Old readme below
 
