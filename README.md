@@ -1,3 +1,5 @@
+### Old readme below, new readme incoming soon!
+
 ## capME!
 
 Easy bake oven for sguil transcripts
