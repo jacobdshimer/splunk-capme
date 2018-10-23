@@ -1,4 +1,18 @@
-### Old readme below, new readme incoming soon!
+## capMe! - Splunk Edition
+
+This edition builds on the changes that Security Onion made in their ELK implementation.  
+
+This script can be utilized in conjunction with any running Security Onion Master/Standalone.  It is best to populate the web form with information from automatically through a Splunk follow on action or custom drilldown.
+
+Example URI:
+
+`https://host/capme/splunk.php?spid=$SPID$&stime=$EPOCHTIME$%sourcetype=$sourcetype$`
+
+SPID is an eval field I created by MD5 hashing the \_cd and \_bkt fields with a \_ between them. So the final entry within my props.conf looked like this:
+
+`EVAL-spid = md5(_bkt+"_"+_cd)`
+
+### Old readme below
 
 ## capME!
 
