@@ -21,11 +21,8 @@ The user that is logging into the Security Onion webserver needs to have an acco
 * A SPID field that is relatively unique
 * A time field in epoch time
 * An entry in the security.conf with the following information
-
-       * SPLUNK_HOST=(The machine that searches Splunk Indexes)
-       
-       * SPLUNKD_PORT=(The splunkd port, typically 8089)
-       
+** SPLUNK_HOST=(The machine that searches Splunk Indexes)
+** SPLUNKD_PORT=(The splunkd port, typically 8089)
 * A user account in Splunk with the same user information for the account that was used to log into Security Onion
 
 ### Old readme below
