@@ -25,7 +25,7 @@ The user that is logging into the Security Onion webserver needs to have an acco
   - SPLUNKD_PORT=(The splunkd port, typically 8089)
 * A user account in Splunk with the same user information for the account that was used to log into Security Onion
 
-### Old readme below
+# Old readme below
 
 ## capME!
 
