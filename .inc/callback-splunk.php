@@ -100,10 +100,10 @@ function splunk_authenticate($splunk_host, $splunkd_port, $usr, $pwd) {
 	return $session_key;
 }
 
-//Send the inital search to Splunk, querries the last 30 days
+//Send the inital search to Splunk
 function splunk_search($splunk_host, $splunkd_port, $splunk_sessionKey, $query, $usr){
 	$ch = curl_init();
-	$url = "https://$splunk_host:$splunkd_port/servicesNS/$usr/securityonion/search/jobs?earliest_time=-30d&output_mode=json";
+	$url = "https://$splunk_host:$splunkd_port/servicesNS/$usr/securityonion/search/jobs?output_mode=json";
 	
 	curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 	curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
@@ -306,7 +306,7 @@ if ($sidsrc == "splunk") {
 	}
 	
 	// Inital query
-	$query = "search=search sourcetype=$stype spid=$spid | table *";
+	$query = "search=search sourcetype=$stype spid=$spid earliest_time=$stime | table *";
 	$splunk_sessionKey = splunk_authenticate($splunk_host, $splunkd_port, $usr, $pwd);
 	$searchID = splunk_search($splunk_host, $splunkd_port, $splunk_sessionKey, $query, $usr);
 	$status = splunk_check_status($splunk_host, $splunkd_port, $splunk_sessionKey, $searchID, $usr);
